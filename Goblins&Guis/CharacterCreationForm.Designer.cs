@@ -79,7 +79,6 @@
             classComboBox.Name = "classComboBox";
             classComboBox.Size = new Size(121, 23);
             classComboBox.TabIndex = 2;
-            classComboBox.SelectedIndexChanged += classComboBox_SelectedIndexChanged;
             // 
             // StartButton
             // 
@@ -130,7 +129,6 @@
             numericUpDownWIS.Size = new Size(120, 23);
             numericUpDownWIS.TabIndex = 7;
             numericUpDownWIS.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDownWIS.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // numericUpDownINT
             // 
@@ -193,7 +191,7 @@
             CONlabel.Size = new Size(33, 15);
             CONlabel.TabIndex = 13;
             CONlabel.Text = "CON";
-            CONlabel.Click += CONlabel_Click;
+           
             // 
             // textBox1
             // 
