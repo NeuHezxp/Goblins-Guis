@@ -23,7 +23,7 @@ namespace Goblins_Guis
         public void BindProperties()
         {
             CharacterCreationForm form = (CharacterCreationForm)CharacterCreationForm;
-            //uses form variables
+            //form variables
             var nameTextBox = (TextBox)CharacterCreationForm.Controls["nameTextBox"];
             var textBox1 = (TextBox)CharacterCreationForm.Controls["textBox1"];
             var classComboBox = (ComboBox)CharacterCreationForm.Controls["classComboBox"];

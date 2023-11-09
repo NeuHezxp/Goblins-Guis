@@ -17,11 +17,14 @@ namespace Goblins_Guis
         
         public CharacterCreationForm()
         {
+
+
             InitializeComponent();
 
             playerCharacter = new Player();
             playerController = new PlayerController(playerCharacter,this);
             playerController.BindProperties();
+
 
             // Bind player properties to controls
             //nameTextBox.DataBindings.Add("Text", playerCharacter, "Name");
@@ -47,12 +50,13 @@ namespace Goblins_Guis
             // Display the debug information in a message box
             MessageBox.Show(debugInfo, "Debug Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         public NumericUpDown StrengthNumericUpDown{ get { return numericUpDownSTR; }}
         public NumericUpDown DexterityNumericUpDown { get { return numericUpDownDEX; } }
         public NumericUpDown ConstitutionNumericUpDown { get { return numericUpDownCON; } }
         public NumericUpDown IntelligenceNumericUpDown { get { return numericUpDownINT; } }
         public NumericUpDown WisdomNumericUpDown { get { return numericUpDownWIS; } }
         public NumericUpDown CharismaNumericUpDown { get { return numericUpDownCHA; } }
-       
+
     }
 }
