@@ -37,6 +37,8 @@ namespace Goblins_Guis
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new CharacterCreationForm());
+
+
         }
     }
 }

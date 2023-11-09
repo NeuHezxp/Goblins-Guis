@@ -24,9 +24,12 @@ namespace Goblins_Guis
         {
             CharacterCreationForm form = (CharacterCreationForm)CharacterCreationForm;
             //form variables
-            var nameTextBox = (TextBox)CharacterCreationForm.Controls["nameTextBox"];
-            var textBox1 = (TextBox)CharacterCreationForm.Controls["textBox1"];
-            var classComboBox = (ComboBox)CharacterCreationForm.Controls["classComboBox"];
+            //var nameTextBox = (TextBox)CharacterCreationForm.Controls["nameTextBox"];
+            //var textBox1 = (TextBox)CharacterCreationForm.Controls["textBox1"];
+            //var classComboBox = (ComboBox)CharacterCreationForm.Controls["classComboBox"];
+            var nameTextBox = CharacterCreationForm.Controls["nameTextBox"] as TextBox;
+            var textBox1 = CharacterCreationForm.Controls["textBox1"] as TextBox;
+            var classComboBox = CharacterCreationForm.Controls["classComboBox"] as ComboBox;
             // Bind the NumericUpDown controls
             form.StrengthNumericUpDown.DataBindings.Add("Value", player, "STR", false, DataSourceUpdateMode.OnPropertyChanged);
             form.DexterityNumericUpDown.DataBindings.Add("Value", player, "DEX", false, DataSourceUpdateMode.OnPropertyChanged);

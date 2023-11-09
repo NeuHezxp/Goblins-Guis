@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 /*
  * Allow user to pick stats?
  * Player Character (class maybe?)
- * Items
  */
 namespace Goblins_Guis
 {
-    internal abstract class Character
+     internal class Character :ICharacter //abstract class says every kind of this class implementation is unique.
     //Use inheritance
     {
-        // Define the CharacterClass as an enum for better type safety
+        //enum for class
         public enum CharacterClass
         {
             Warrior,
@@ -36,12 +35,12 @@ namespace Goblins_Guis
         public int Level { get; set; }
         public int Gold { get; set; }
 
-        // Constructor
-        public Character()
+       
+        public Character() // Constructor
         {
             // Initializing properties to default values
             Name = "Name";
-            Class = CharacterClass.Warrior; // Default class
+            Class = CharacterClass.Warrior;
             HP = 100; // Default HP
             STR = 5; // Default Strength
             DEX = 5; // Default Dexterity
@@ -54,6 +53,10 @@ namespace Goblins_Guis
             Gold = 0; // Default gold
         }
         public virtual void attack() { }
+
+
+        public virtual void defend(int incomingDamage) { }
     }
+    
 
 }

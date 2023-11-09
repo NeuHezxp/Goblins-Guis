@@ -24,6 +24,8 @@ namespace Goblins_Guis
             playerCharacter = new Player();
             playerController = new PlayerController(playerCharacter,this);
             playerController.BindProperties();
+           
+
 
 
             // Bind player properties to controls
@@ -37,9 +39,6 @@ namespace Goblins_Guis
             //numericUpDownINT.DataBindings.Add("Value", playerCharacter, "INT", false, DataSourceUpdateMode.OnPropertyChanged);
             //numericUpDownWIS.DataBindings.Add("Value", playerCharacter, "WIS", false, DataSourceUpdateMode.OnPropertyChanged);
             //numericUpDownCHA.DataBindings.Add("Value", playerCharacter, "CHA", false, DataSourceUpdateMode.OnPropertyChanged);
-
-
-            // ... and so on for other properties
         }
 
         private void StartButton_click(object sender, EventArgs e)

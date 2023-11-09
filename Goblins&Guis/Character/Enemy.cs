@@ -13,7 +13,7 @@ namespace Goblins_Guis
 
         public Enemy() : base()
         {
-            // Initialize enemy-specific properties
+            
             DifficultyLevel = 1; // Default difficulty
         }
 
