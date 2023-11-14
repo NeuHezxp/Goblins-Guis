@@ -4,28 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goblins_Guis
+namespace Goblins_Guis.Character
 {
-    internal class Player : Character,IAttack,IDefend
+    internal class Player : Character, IAttack, IDefend
     {
-        
+
 
         public Player() : base()
         {
-            
+
         }
         private void modifier()
         {
 
         }
-         
+
         // Player-specific methods here
         public bool stake(int stake)
         {
             //stake a dice roll and if fails take double damage but if succeed deal double damage
-           return false;
+            return false;
         }
-        public void Defend(int incomingDamage) 
+        public void Defend(int incomingDamage)
         {
             //defend based on class and a random number
             //defend based on stats
@@ -41,12 +41,12 @@ namespace Goblins_Guis
 
         public bool attemptAttack(int difficulty)
         {
-            
+
 
             return true;
         }
 
-       
+
     }
 }
 

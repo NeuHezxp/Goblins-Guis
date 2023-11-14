@@ -7,9 +7,9 @@ using System.Threading.Tasks;
  * Allow user to pick stats?
  * Player Character (class maybe?)
  */
-namespace Goblins_Guis
+namespace Goblins_Guis.Character
 {
-     internal class Character :ICharacter //abstract class says every kind of this class implementation is unique.
+    internal class Character : ICharacter //abstract class says every kind of this class implementation is unique.
     //Use inheritance
     {
         //enum for class
@@ -35,7 +35,7 @@ namespace Goblins_Guis
         public int Level { get; set; }
         public int Gold { get; set; }
 
-       
+
         public Character() // Constructor
         {
             // Initializing properties to default values
@@ -57,6 +57,6 @@ namespace Goblins_Guis
 
         public virtual void defend(int incomingDamage) { }
     }
-    
+
 
 }

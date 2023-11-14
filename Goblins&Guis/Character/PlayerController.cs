@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Goblins_Guis.Character;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace Goblins_Guis
             //name and textbox combo
             nameTextBox.DataBindings.Add    ("Text", player, "Name");
             textBox1.DataBindings.Add       ("Text", player, "Gender");
-            classComboBox.DataSource = Enum.GetValues(typeof(Character.CharacterClass));
+            classComboBox.DataSource = Enum.GetValues(typeof(Character.Character.CharacterClass));
             classComboBox.DataBindings.Add  ("SelectedItem", player, "Class");
             
         }

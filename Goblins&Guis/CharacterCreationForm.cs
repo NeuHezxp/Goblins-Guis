@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Goblins_Guis.Character;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
