@@ -57,7 +57,7 @@ namespace Goblins_Guis.Character
         //    PropertyChanged(this, new PropertyChangedEventArgs());
         //}
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+      //  public event PropertyChangedEventHandler? PropertyChanged;
 
         public virtual void attack() { }
 
