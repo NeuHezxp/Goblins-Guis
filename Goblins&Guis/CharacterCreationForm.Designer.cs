@@ -61,30 +61,33 @@
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
             // nameTextBox
             // 
-            nameTextBox.Location = new Point(54, 34);
+            nameTextBox.Location = new Point(77, 57);
+            nameTextBox.Margin = new Padding(4, 5, 4, 5);
             nameTextBox.Name = "nameTextBox";
-            nameTextBox.Size = new Size(100, 23);
+            nameTextBox.Size = new Size(141, 31);
             nameTextBox.TabIndex = 1;
             // 
             // classComboBox
             // 
-            classComboBox.Enabled = false;
             classComboBox.FormattingEnabled = true;
-            classComboBox.Location = new Point(308, 236);
+            classComboBox.Location = new Point(440, 393);
+            classComboBox.Margin = new Padding(4, 5, 4, 5);
             classComboBox.Name = "classComboBox";
-            classComboBox.Size = new Size(121, 23);
+            classComboBox.Size = new Size(171, 33);
             classComboBox.TabIndex = 2;
             // 
             // StartButton
             // 
-            StartButton.Location = new Point(358, 350);
+            StartButton.Location = new Point(511, 583);
+            StartButton.Margin = new Padding(4, 5, 4, 5);
             StartButton.Name = "StartButton";
-            StartButton.Size = new Size(75, 23);
+            StartButton.Size = new Size(107, 38);
             StartButton.TabIndex = 3;
             StartButton.Text = "Start Journey";
             StartButton.UseVisualStyleBackColor = true;
@@ -92,61 +95,67 @@
             // 
             // numericUpDownSTR
             // 
-            numericUpDownSTR.Location = new Point(23, 12);
+            numericUpDownSTR.Location = new Point(33, 20);
+            numericUpDownSTR.Margin = new Padding(4, 5, 4, 5);
             numericUpDownSTR.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericUpDownSTR.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownSTR.Name = "numericUpDownSTR";
-            numericUpDownSTR.Size = new Size(120, 23);
+            numericUpDownSTR.Size = new Size(171, 31);
             numericUpDownSTR.TabIndex = 4;
             numericUpDownSTR.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDownDEX
             // 
-            numericUpDownDEX.Location = new Point(23, 41);
+            numericUpDownDEX.Location = new Point(33, 68);
+            numericUpDownDEX.Margin = new Padding(4, 5, 4, 5);
             numericUpDownDEX.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericUpDownDEX.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownDEX.Name = "numericUpDownDEX";
-            numericUpDownDEX.Size = new Size(120, 23);
+            numericUpDownDEX.Size = new Size(171, 31);
             numericUpDownDEX.TabIndex = 5;
             numericUpDownDEX.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDownCON
             // 
-            numericUpDownCON.Location = new Point(23, 70);
+            numericUpDownCON.Location = new Point(33, 117);
+            numericUpDownCON.Margin = new Padding(4, 5, 4, 5);
             numericUpDownCON.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericUpDownCON.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownCON.Name = "numericUpDownCON";
-            numericUpDownCON.Size = new Size(120, 23);
+            numericUpDownCON.Size = new Size(171, 31);
             numericUpDownCON.TabIndex = 6;
             numericUpDownCON.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDownWIS
             // 
-            numericUpDownWIS.Location = new Point(23, 128);
+            numericUpDownWIS.Location = new Point(33, 213);
+            numericUpDownWIS.Margin = new Padding(4, 5, 4, 5);
             numericUpDownWIS.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericUpDownWIS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownWIS.Name = "numericUpDownWIS";
-            numericUpDownWIS.Size = new Size(120, 23);
+            numericUpDownWIS.Size = new Size(171, 31);
             numericUpDownWIS.TabIndex = 7;
             numericUpDownWIS.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDownINT
             // 
-            numericUpDownINT.Location = new Point(23, 99);
+            numericUpDownINT.Location = new Point(33, 165);
+            numericUpDownINT.Margin = new Padding(4, 5, 4, 5);
             numericUpDownINT.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericUpDownINT.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownINT.Name = "numericUpDownINT";
-            numericUpDownINT.Size = new Size(120, 23);
+            numericUpDownINT.Size = new Size(171, 31);
             numericUpDownINT.TabIndex = 8;
             numericUpDownINT.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDownCHA
             // 
-            numericUpDownCHA.Location = new Point(23, 157);
+            numericUpDownCHA.Location = new Point(33, 262);
+            numericUpDownCHA.Margin = new Padding(4, 5, 4, 5);
             numericUpDownCHA.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericUpDownCHA.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownCHA.Name = "numericUpDownCHA";
-            numericUpDownCHA.Size = new Size(120, 23);
+            numericUpDownCHA.Size = new Size(171, 31);
             numericUpDownCHA.TabIndex = 9;
             numericUpDownCHA.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -158,9 +167,11 @@
             groupBox1.Controls.Add(numericUpDownCON);
             groupBox1.Controls.Add(numericUpDownINT);
             groupBox1.Controls.Add(numericUpDownWIS);
-            groupBox1.Location = new Point(286, 23);
+            groupBox1.Location = new Point(409, 38);
+            groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(200, 192);
+            groupBox1.Padding = new Padding(4, 5, 4, 5);
+            groupBox1.Size = new Size(286, 320);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "statBox";
@@ -168,45 +179,49 @@
             // STRlabel
             // 
             STRlabel.AutoSize = true;
-            STRlabel.Location = new Point(254, 42);
+            STRlabel.Location = new Point(363, 70);
+            STRlabel.Margin = new Padding(4, 0, 4, 0);
             STRlabel.Name = "STRlabel";
-            STRlabel.Size = new Size(26, 15);
+            STRlabel.Size = new Size(42, 25);
             STRlabel.TabIndex = 11;
             STRlabel.Text = "STR";
             // 
             // DEXlabel
             // 
             DEXlabel.AutoSize = true;
-            DEXlabel.Location = new Point(254, 72);
+            DEXlabel.Location = new Point(363, 120);
+            DEXlabel.Margin = new Padding(4, 0, 4, 0);
             DEXlabel.Name = "DEXlabel";
-            DEXlabel.Size = new Size(28, 15);
+            DEXlabel.Size = new Size(45, 25);
             DEXlabel.TabIndex = 12;
             DEXlabel.Text = "DEX";
             // 
             // CONlabel
             // 
             CONlabel.AutoSize = true;
-            CONlabel.Location = new Point(254, 101);
+            CONlabel.Location = new Point(363, 168);
+            CONlabel.Margin = new Padding(4, 0, 4, 0);
             CONlabel.Name = "CONlabel";
-            CONlabel.Size = new Size(33, 15);
+            CONlabel.Size = new Size(50, 25);
             CONlabel.TabIndex = 13;
             CONlabel.Text = "CON";
-           
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(54, 92);
+            textBox1.Location = new Point(77, 153);
+            textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(141, 31);
             textBox1.TabIndex = 14;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Himalaya", 12F, FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(7, 42);
+            label1.Location = new Point(10, 70);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(40, 16);
+            label1.Size = new Size(57, 24);
             label1.TabIndex = 15;
             label1.Text = "NAME";
             // 
@@ -214,9 +229,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Himalaya", 12F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(7, 98);
+            label2.Location = new Point(10, 163);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(39, 16);
+            label2.Size = new Size(57, 24);
             label2.TabIndex = 16;
             label2.Text = "Gender";
             // 
@@ -224,44 +240,48 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Himalaya", 12F, FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(254, 243);
+            label3.Location = new Point(363, 405);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(33, 16);
+            label3.Size = new Size(48, 24);
             label3.TabIndex = 17;
             label3.Text = "Class:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(254, 130);
+            label4.Location = new Point(363, 217);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(25, 15);
+            label4.Size = new Size(39, 25);
             label4.TabIndex = 18;
             label4.Text = "INT";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(254, 159);
+            label5.Location = new Point(363, 265);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(27, 15);
+            label5.Size = new Size(44, 25);
             label5.TabIndex = 19;
             label5.Text = "WIS";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(254, 188);
+            label6.Location = new Point(363, 313);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(32, 15);
+            label6.Size = new Size(48, 25);
             label6.TabIndex = 20;
             label6.Text = "CHA";
             // 
             // CharacterCreationForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(498, 450);
+            ClientSize = new Size(711, 750);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -276,6 +296,7 @@
             Controls.Add(StartButton);
             Controls.Add(classComboBox);
             Controls.Add(nameTextBox);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CharacterCreationForm";
             Text = "CharacterCreationForm";
             ((System.ComponentModel.ISupportInitialize)numericUpDownSTR).EndInit();

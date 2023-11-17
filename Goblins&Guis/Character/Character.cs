@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 /*
@@ -48,10 +50,15 @@ namespace Goblins_Guis.Character
             INT = 5; // Default intelligence
             WIS = 5; // Default wisdom
             CHA = 5; // Default charisma
-            EXP = 0; // Default experience
-            Level = 1; // Default level
-            Gold = 0; // Default gold
+     
         }
+        //private void notifyPropertyChanged([CallerMemberName]String propertyName = "")
+        //{
+        //    PropertyChanged(this, new PropertyChangedEventArgs());
+        //}
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public virtual void attack() { }
 
 

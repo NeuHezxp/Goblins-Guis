@@ -15,7 +15,7 @@ namespace Goblins_Guis
     {
         private Player playerCharacter;
         private PlayerController playerController;
-        
+
         public CharacterCreationForm()
         {
 
@@ -23,11 +23,8 @@ namespace Goblins_Guis
             InitializeComponent();
 
             playerCharacter = new Player();
-            playerController = new PlayerController(playerCharacter,this);
+            playerController = new PlayerController(playerCharacter, this);
             playerController.BindProperties();
-           
-
-
 
             // Bind player properties to controls
             /*
@@ -47,13 +44,14 @@ namespace Goblins_Guis
         private void StartButton_click(object sender, EventArgs e)
         {
             // Construct a string that contains the debug information
-             string debugInfo = playerController.GetDebugInfo();
+            string debugInfo = playerController.GetDebugInfo();
 
             // Display the debug information in a message box
             MessageBox.Show(debugInfo, "Debug Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
-        public NumericUpDown StrengthNumericUpDown{ get { return numericUpDownSTR; }}
+        public NumericUpDown StrengthNumericUpDown { get { return numericUpDownSTR; } }
         public NumericUpDown DexterityNumericUpDown { get { return numericUpDownDEX; } }
         public NumericUpDown ConstitutionNumericUpDown { get { return numericUpDownCON; } }
         public NumericUpDown IntelligenceNumericUpDown { get { return numericUpDownINT; } }

@@ -45,5 +45,6 @@ namespace Goblins_Guis
             classComboBox.DataBindings.Add  ("SelectedItem", player, "Class");
             
         }
+        
     }
 }
