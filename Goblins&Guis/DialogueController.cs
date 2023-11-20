@@ -9,25 +9,40 @@ namespace Goblins_Guis
 {
     internal class DialogueController
     {
-        private NPC npc;
+       
+        private NPC currentNPC;
+        private Player player;
 
-        public DialogueController()
+        public DialogueController(Player player)
         {
-            // Initialize with a default NPC
-            npc = new NPC();
+            this.player = player;
+            currentNPC = new NPC();
         }
-        
+        public Player GetPlayer()
+        {
+            return player;
+        }
+
+        // Add methods to interact with the Player object
+        // For example, a method to check if a player can perform a certain action
+        public bool CanPerformAction(int requiredStat)
+        {
+            // Logic to determine if the player can perform the action
+            // This could be based on the player's STR, DEX, etc.
+            return player.STR > requiredStat; 
+        }
+
         public string GetNPCName()
         {
-            return npc.Name;
+            return currentNPC.Name;
         }
         public string GetNPCDialogue()
         {
-            return npc.Dialogue;
+            return currentNPC.Dialogue;
         }
         public string GetNewNPCDialogue()
         {
-            return npc.GetRandomDialogue();
+            return currentNPC.GetRandomDialogue();
         }
     }
 }

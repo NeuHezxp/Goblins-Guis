@@ -17,6 +17,10 @@ namespace Goblins_Guis
             this.player = player;
             this.CharacterCreationForm = CharacterCreationForm;
         }
+        public Player GetPlayer()
+        {
+            return player;
+        }
         public string GetDebugInfo()
         {
             return $"Name: {player.Name},\n Gender: {player.Gender}\n STR:{player.STR},\n DEX:{player.DEX}\n CON:{player.CON}\n INT:{player.INT}\n WIS:{player.WIS}\n CHA:{player.CHA}\n CLASS:{player.Class} ";

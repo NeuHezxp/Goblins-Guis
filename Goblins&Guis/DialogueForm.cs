@@ -33,6 +33,15 @@ namespace Goblins_Guis
             label1.Text = controller.GetNPCName();
             label2.Text = controller.GetNPCDialogue();
         }
+        private void StartCombat()
+        {
+            Player player = controller.GetPlayer();
+            CombatForm combatForm = new CombatForm(player);
+            combatForm.CombatEnded += OnCombatEnded;
+
+            combatForm.Show();
+            this.Hide();
+        }
 
 
         private string GetRandomButtonText()
@@ -42,7 +51,14 @@ namespace Goblins_Guis
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            label2.Text = controller.GetNewNPCDialogue();
+            if (controller.CanPerformAction(10)) // Example condition
+            {
+                StartCombat();
+            }
+            else
+            {
+                // Other action or message
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,7 +73,20 @@ namespace Goblins_Guis
 
         private void button4_Click(object sender, EventArgs e)
         {
-            label2.Text = controller.GetNewNPCDialogue();
+            if (controller.CanPerformAction(0)) // Example condition
+            {
+                StartCombat();
+            }
+            else
+            {
+                // Other action or message
+            }
+        }
+
+        private void OnCombatEnded()
+        {
+            // Show the DialogueForm when combat ends
+            this.Show();
         }
     }
 }

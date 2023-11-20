@@ -27,14 +27,11 @@ namespace Goblins_Guis
 
         private void StartButton_click(object sender, EventArgs e)
         {
-            DialogueController dialogueController = new DialogueController();
-
-            // Create an instance of the DialogueForm
+            MessageBox.Show(playerController.GetDebugInfo());
+            Player player = playerController.GetPlayer(); // Or get the existing player object
+            DialogueController dialogueController = new DialogueController(player);
             DialogueForm dialogueForm = new DialogueForm(dialogueController);
-
-            // Show the DialogueForm
             dialogueForm.Show();
-             //this.Close();
         }
 
         public NumericUpDown StrengthNumericUpDown { get { return numericUpDownSTR; } }
