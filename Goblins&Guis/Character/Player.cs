@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Goblins_Guis.Character
 {
-    internal class Player : Character, IAttack, IDefend
+    internal class Player : Character, IAttack
     {
 
         private Random rand = new Random();
@@ -34,10 +34,28 @@ namespace Goblins_Guis.Character
 
             return Math.Max(1, totalDamage); // Ensure that damage is at least 1
         }
-        public void Defend(int incomingDamage)
+        public int CalculateDefense(int incomingDamage)
         {
-            //defend based on class and a random number
-            //defend based on stats
+            // Base defense value 
+            int baseDefense = CON;
+
+            // Class-specific defense modifier
+            int defenseModifier = Class switch
+            {
+                CharacterClass.Warrior => CON * 2, 
+                CharacterClass.Mage => WIS * 2,    
+                CharacterClass.Archer => DEX * 2,  
+            };
+
+            int randomFactor = rand.Next(-2, 3);
+
+            // Calculate total defense
+            int totalDefense = baseDefense + defenseModifier + randomFactor;
+
+            // Calculate damage mitigated
+            int Guarded = Math.Min(totalDefense, incomingDamage);
+
+            return Guarded;
         }
 
         // Player-specific methods here
@@ -49,20 +67,12 @@ namespace Goblins_Guis.Character
 
         public void Attack(int Roll)
         {
-            //attack with random number 1-6
-            //attack with stats
-            //attack modified by class
-            //
         }
 
         public bool attemptAttack(int difficulty)
         {
-
-
-            return true;
+            return false;
         }
-
-
     }
 }
 

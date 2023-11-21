@@ -23,7 +23,7 @@ namespace Goblins_Guis
             InitializeComponent();
             this.player = player;
 
-
+            combatController = new CombatController(player);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,16 +33,9 @@ namespace Goblins_Guis
         private void attackButton_Click(object sender, EventArgs e)
         {
             combatController.PerformAttack();
-            // Update UI based on the attack result
         }
 
-        private void defendButton_Click(object sender, EventArgs e)
-        {
-            // Example: incoming damage value
-            int incomingDamage = 10;
-            combatController.PerformPlayerDefend(incomingDamage);
-            // Update UI based on the defense result
-        }
+        
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -53,12 +46,27 @@ namespace Goblins_Guis
 
         private void button2_Click(object sender, EventArgs e)
         {
+            combatController.PerformAttack();
             //debug info for the attack
             int damage = player.CalculateAttackDamage();
             string name = player.Name;
             string classname = player.Class.ToString();
             string gender = player.Gender;
             MessageBox.Show($"{name} the {gender} {classname} attacks with {damage} damage.");
+        }
+
+        private void Defendbutton_Click(object sender, EventArgs e)
+        {
+
+            int incomingDamage = 10;
+            combatController.PerformDefend(incomingDamage);
+            int damageMitigated = player.CalculateDefense(incomingDamage);
+            string name = player.Name;
+            string classname = player.Class.ToString();
+            string gender = player.Gender;
+
+            // Display the result
+            MessageBox.Show($"{name} the {gender} {classname} defends and mitigates {damageMitigated} damage.");
         }
     }
 }

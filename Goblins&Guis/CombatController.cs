@@ -22,17 +22,19 @@ namespace Goblins_Guis
         public void PerformAttack()
         {
             int damage = player.CalculateAttackDamage();
-            // Additional logic to apply this damage to the enemy
+            //todo take health away from enemy
         }
 
-        public void PerformPlayerDefend(int incomingDamage)
+        public void PerformDefend(int incomingDamage)
         {
-            player.Defend(incomingDamage);
+            int damageMitigated = player.CalculateDefense(incomingDamage);
+            int netDamage = incomingDamage - damageMitigated;
 
-            // Additional logic for defense outcome
+            
+            player.HP -= netDamage; 
         }
 
-        // Additional methods for handling other combat actions
+        // TODO add enemy logic
     }
 }
 

@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            Flee_Button = new Button();
             button2 = new Button();
+            Defendbutton = new Button();
             SuspendLayout();
             // 
-            // button1
+            // Flee_Button
             // 
-            button1.Location = new Point(336, 399);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Flee";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            Flee_Button.Location = new Point(336, 399);
+            Flee_Button.Name = "Flee_Button";
+            Flee_Button.Size = new Size(75, 23);
+            Flee_Button.TabIndex = 0;
+            Flee_Button.Text = "Flee";
+            Flee_Button.UseVisualStyleBackColor = true;
+            Flee_Button.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(336, 72);
+            button2.Location = new Point(237, 255);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 1;
@@ -52,13 +53,24 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // Defendbutton
+            // 
+            Defendbutton.Location = new Point(434, 255);
+            Defendbutton.Name = "Defendbutton";
+            Defendbutton.Size = new Size(75, 23);
+            Defendbutton.TabIndex = 2;
+            Defendbutton.Text = "Defend";
+            Defendbutton.UseVisualStyleBackColor = true;
+            Defendbutton.Click += Defendbutton_Click;
+            // 
             // CombatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(Defendbutton);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(Flee_Button);
             Name = "CombatForm";
             Text = "CombatForm";
             ResumeLayout(false);
@@ -66,7 +78,8 @@
 
         #endregion
 
-        private Button button1;
+        private Button Flee_Button;
         private Button button2;
+        private Button Defendbutton;
     }
 }
