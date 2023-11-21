@@ -35,7 +35,7 @@ namespace Goblins_Guis
             combatController.PerformAttack();
         }
 
-        
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
