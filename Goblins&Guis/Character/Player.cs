@@ -8,11 +8,27 @@ namespace Goblins_Guis.Character
 {
     internal class Player : Character, IAttack
     {
-
+        public event Action<int> HealthChanged;
         private Random rand = new Random();
+        
         public Player() : base()
         {
-
+            HP = 100;
+        }
+        // Modify the HP property to trigger the event
+        private int _hp;
+        public int HP
+        {
+            get => _hp;
+            set
+            {
+                int newHP = Math.Max(0, value); // Ensure health doesn't go below 0
+                if (_hp != newHP)
+                {
+                    _hp = newHP;
+                    HealthChanged?.Invoke(_hp); // Raise event
+                }
+            }
         }
         public int CalculateAttackDamage()
         {

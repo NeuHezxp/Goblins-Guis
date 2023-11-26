@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Goblins_Guis
 {
     internal class DialogueController
     {
-       
+        private static readonly Random rand = new Random();
         private NPC currentNPC;
         private Player player;
+
+
+
 
         public DialogueController(Player player)
         {
@@ -22,15 +26,41 @@ namespace Goblins_Guis
         {
             return player;
         }
-
-        // Add methods to interact with the Player object
-        // For example, a method to check if a player can perform a certain action
-        public bool CanPerformAction(int requiredStat)
+        public string GetDialogueForAttribute(string attributeType)
         {
-            // Logic to determine if the player can perform the action
-            // This could be based on the player's STR, DEX, etc.
-            return player.STR > requiredStat; 
+            return currentNPC.GetRandomDialogueBasedOnAttribute(attributeType);
         }
+        //actions for the player to take
+        public bool CanPerformStrAction(int requiredStr)
+        {
+            return player.STR >= requiredStr;
+        }
+
+        public bool CanPerformDexAction(int requiredDex)
+        {
+            return player.DEX >= requiredDex;
+        }
+
+        public bool CanPerformChaAction(int requiredCha)
+        {
+            return player.CHA >= requiredCha;
+        }
+
+        public bool CanPerformConAction(int requiredCon)
+        {
+            return player.CON >= requiredCon;
+        }
+
+        public bool CanPerformIntAction(int requiredInt)
+        {
+            return player.INT >= requiredInt;
+        }
+
+        public bool CanPerformWisAction(int requiredWis)
+        {
+            return player.WIS >= requiredWis;
+        }
+
 
         public string GetNPCName()
         {

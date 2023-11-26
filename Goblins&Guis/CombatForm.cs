@@ -15,15 +15,28 @@ namespace Goblins_Guis
     public partial class CombatForm : Form
     {
         private Player player;
+        private Enemy enemy;
         private CombatController combatController;
         public event Action CombatEnded;
 
-        internal CombatForm(Player player)
+
+
+        internal CombatForm(Player player, Enemy enemy)
         {
             InitializeComponent();
             this.player = player;
+            this.enemy = enemy;
 
-            combatController = new CombatController(player);
+            player.HealthChanged += UpdatePlayerHealthBar;
+            enemy.HealthChanged += UpdateEnemyHealthBar;
+
+            // Initialize health progress bars
+            healthProgressBar.Maximum = 100; // Adjust as needed
+            enemyHealthProgressBar.Maximum = 100; // Adjust as needed
+            UpdatePlayerHealthBar(player.HP);
+            UpdateEnemyHealthBar(enemy.HP);
+
+            combatController = new CombatController(player, enemy);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +45,8 @@ namespace Goblins_Guis
         }
         private void attackButton_Click(object sender, EventArgs e)
         {
-            combatController.PerformAttack();
+            
+           
         }
 
 
@@ -42,31 +56,52 @@ namespace Goblins_Guis
 
             // Raise the event when the form is closing
             CombatEnded?.Invoke();
+            player.HealthChanged -= UpdatePlayerHealthBar; // Unsubscribe from the event
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            combatController.PerformAttack();
-            //debug info for the attack
-            int damage = player.CalculateAttackDamage();
-            string name = player.Name;
-            string classname = player.Class.ToString();
-            string gender = player.Gender;
-            MessageBox.Show($"{name} the {gender} {classname} attacks with {damage} damage.");
+            combatController.PlayerAttack();
         }
 
         private void Defendbutton_Click(object sender, EventArgs e)
         {
-
-            int incomingDamage = 10;
-            combatController.PerformDefend(incomingDamage);
-            int damageMitigated = player.CalculateDefense(incomingDamage);
-            string name = player.Name;
-            string classname = player.Class.ToString();
-            string gender = player.Gender;
-
-            // Display the result
-            MessageBox.Show($"{name} the {gender} {classname} defends and mitigates {damageMitigated} damage.");
+            combatController.PlayerDefend();
+            
         }
+        private void UpdatePlayerHealthBar(int newHealth)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<int>(UpdatePlayerHealthBar), newHealth);
+            }
+            else
+            {
+                healthProgressBar.Value = Math.Clamp(newHealth, healthProgressBar.Minimum, healthProgressBar.Maximum);
+            }
+        }
+        private void UpdateEnemyHealthBar(int newHealth)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<int>(UpdateEnemyHealthBar), newHealth);
+            }
+            else
+            {
+                enemyHealthProgressBar.Value = Math.Clamp(newHealth, enemyHealthProgressBar.Minimum, enemyHealthProgressBar.Maximum);
+            }
+        }
+
+        private void CombatForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void takeDamageButton_Click(object sender, EventArgs e)
+        {
+            int damageAmount = 10;
+            player.HP -= damageAmount;
+        }
+
+
     }
 }

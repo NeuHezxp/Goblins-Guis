@@ -35,7 +35,46 @@ namespace Goblins_Guis
     "Well met, traveler! The Bazaar of Bountiful Baubles offers trinkets and treasures galore.",
     "Step right up to the Wandering Wizard's Wagon, filled with magical marvels and arcane artifacts."
 };
+        private static readonly string[] StrDialogues =
+   {
+        "The path of the mighty is not easy. Show your strength to proceed.",
+        "Only the strongest may pass through the gates of Valoria.",
+        "Your muscles speak louder than words in the Arena of Titans."
+    };
 
+        private static readonly string[] DexDialogues =
+        {
+        "Agility is key. Can you move swiftly enough to evade the shadows?",
+        "Only those with the swiftness of a panther can traverse the Silent Forest.",
+        "The nimble and quick are favored by the spirits of the wind."
+    };
+        private static readonly string[] ConDialogues =
+        {
+        "Wisdom is the light in the darkness. Can you illuminate the path?",
+        "The wise are revered in the Library of Echoes. What wisdom do you bring?",
+        "Solve the riddle of the ancients to proceed on your journey."
+    };
+
+        private static readonly string[] ChaDialogues =
+        {
+        "A charming soul can open many doors. Will yours open the right one?",
+        "In the Court of Whispers, your charisma is your best weapon.",
+        "Win hearts and you shall win your path forward."
+    };
+
+        private static readonly string[] WisDialogues =
+        {
+        "Wisdom is the light in the darkness. Can you illuminate the path?",
+        "The wise are revered in the Library of Echoes. What wisdom do you bring?",
+        "Solve the riddle of the ancients to proceed on your journey."
+    };
+
+        private static readonly string[] IntDialogues =
+        {
+        "Intelligence is the key to unlocking the mysteries of the world.",
+        "In the Tower of Logic, only the cleverest minds may ascend.",
+        "A puzzle awaits you, requiring more than mere strength to solve."
+    };
 
         public string Name { get; private set; }
         public string Dialogue { get; set; }
@@ -46,7 +85,37 @@ namespace Goblins_Guis
             Name = GetRandomName();
             Dialogue = GetRandomDialogue();
         }
+        public string GetRandomDialogueBasedOnAttribute(string attributeType)
+        {
+            string[] selectedArray;
+            switch (attributeType)
+            {
+                case "STR":
+                    selectedArray = StrDialogues;
+                    break;
+                case "DEX":
+                    selectedArray = DexDialogues;
+                    break;
+                case "CON":
+                    selectedArray = ConDialogues;
+                    break;
+                case "CHA":
+                    selectedArray = ChaDialogues;
+                    break;
+                case "WIS":
+                    selectedArray = WisDialogues;
+                    break;
+                case "INT":
+                    selectedArray = IntDialogues;
+                    break;
 
+                default:
+                    selectedArray = RandomDialogues;
+                    break;
+            }
+
+            return selectedArray[rand.Next(selectedArray.Length)];
+        }
         private string GetRandomName()
         {
             return RandomNames[rand.Next(RandomNames.Length)];

@@ -33,13 +33,14 @@
             Defendbutton = new Button();
             EnemyName_label = new Label();
             EnemyDialogue_label = new Label();
-            playerHP_label = new Label();
-            EnemyHP_label = new Label();
+            enemyHealthProgressBar = new ProgressBar();
+            healthProgressBar = new ProgressBar();
+            takeDamageButton = new Button();
             SuspendLayout();
             // 
             // Flee_Button
             // 
-            Flee_Button.Location = new Point(336, 399);
+            Flee_Button.Location = new Point(326, 395);
             Flee_Button.Name = "Flee_Button";
             Flee_Button.Size = new Size(75, 23);
             Flee_Button.TabIndex = 0;
@@ -49,7 +50,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(248, 349);
+            button2.Location = new Point(205, 349);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // Defendbutton
             // 
-            Defendbutton.Location = new Point(422, 349);
+            Defendbutton.Location = new Point(466, 349);
             Defendbutton.Name = "Defendbutton";
             Defendbutton.Size = new Size(75, 23);
             Defendbutton.TabIndex = 2;
@@ -85,31 +86,38 @@
             EnemyDialogue_label.TabIndex = 4;
             EnemyDialogue_label.Text = "EnemyDialogue_label";
             // 
-            // playerHP_label
+            // enemyHealthProgressBar
             // 
-            playerHP_label.AutoSize = true;
-            playerHP_label.Location = new Point(362, 357);
-            playerHP_label.Name = "playerHP_label";
-            playerHP_label.Size = new Size(23, 15);
-            playerHP_label.TabIndex = 5;
-            playerHP_label.Text = "HP";
+            enemyHealthProgressBar.Location = new Point(326, 78);
+            enemyHealthProgressBar.Name = "enemyHealthProgressBar";
+            enemyHealthProgressBar.Size = new Size(100, 23);
+            enemyHealthProgressBar.TabIndex = 5;
             // 
-            // EnemyHP_label
+            // healthProgressBar
             // 
-            EnemyHP_label.AutoSize = true;
-            EnemyHP_label.Location = new Point(362, 83);
-            EnemyHP_label.Name = "EnemyHP_label";
-            EnemyHP_label.Size = new Size(23, 15);
-            EnemyHP_label.TabIndex = 6;
-            EnemyHP_label.Text = "HP";
+            healthProgressBar.Location = new Point(321, 349);
+            healthProgressBar.Name = "healthProgressBar";
+            healthProgressBar.Size = new Size(100, 23);
+            healthProgressBar.TabIndex = 6;
+            // 
+            // takeDamageButton
+            // 
+            takeDamageButton.Location = new Point(311, 263);
+            takeDamageButton.Name = "takeDamageButton";
+            takeDamageButton.Size = new Size(115, 23);
+            takeDamageButton.TabIndex = 7;
+            takeDamageButton.Text = "TakeDamage";
+            takeDamageButton.UseVisualStyleBackColor = true;
+            takeDamageButton.Click += takeDamageButton_Click;
             // 
             // CombatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(EnemyHP_label);
-            Controls.Add(playerHP_label);
+            Controls.Add(takeDamageButton);
+            Controls.Add(healthProgressBar);
+            Controls.Add(enemyHealthProgressBar);
             Controls.Add(EnemyDialogue_label);
             Controls.Add(EnemyName_label);
             Controls.Add(Defendbutton);
@@ -117,6 +125,7 @@
             Controls.Add(Flee_Button);
             Name = "CombatForm";
             Text = "CombatForm";
+            Load += CombatForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -128,7 +137,8 @@
         private Button Defendbutton;
         private Label EnemyName_label;
         private Label EnemyDialogue_label;
-        private Label playerHP_label;
-        private Label EnemyHP_label;
+        private ProgressBar enemyHealthProgressBar;
+        private ProgressBar healthProgressBar;
+        private Button takeDamageButton;
     }
 }
