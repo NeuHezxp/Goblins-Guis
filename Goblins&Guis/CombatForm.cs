@@ -31,8 +31,8 @@ namespace Goblins_Guis
             enemy.HealthChanged += UpdateEnemyHealthBar;
 
             // Initialize health progress bars
-            healthProgressBar.Maximum = 100; // Adjust as needed
-            enemyHealthProgressBar.Maximum = 100; // Adjust as needed
+            healthProgressBar.Maximum = 100;
+            enemyHealthProgressBar.Maximum = 100;
             UpdatePlayerHealthBar(player.HP);
             UpdateEnemyHealthBar(enemy.HP);
 
@@ -45,8 +45,8 @@ namespace Goblins_Guis
         }
         private void attackButton_Click(object sender, EventArgs e)
         {
-            
-           
+
+
         }
 
 
@@ -57,17 +57,24 @@ namespace Goblins_Guis
             // Raise the event when the form is closing
             CombatEnded?.Invoke();
             player.HealthChanged -= UpdatePlayerHealthBar; // Unsubscribe from the event
+            enemy.HealthChanged -= UpdateEnemyHealthBar; // Unsubscribe from the event
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            combatController.PlayerAttack();
+            string message = combatController.PlayerAttack();
+            MessageBox.Show(message);
+            if (combatController.EnemyDead())
+            {
+                OnCombatEnded();
+            }
         }
 
         private void Defendbutton_Click(object sender, EventArgs e)
         {
-            combatController.PlayerDefend();
-            
+            string message = combatController.PlayerDefend();
+            MessageBox.Show(message);
+
         }
         private void UpdatePlayerHealthBar(int newHealth)
         {
@@ -96,12 +103,27 @@ namespace Goblins_Guis
         {
 
         }
+        private void OnCombatEnded()
+        {
+            // Reset health for both player and enemy
+            player.HP = 100;
+            enemy.HP = 100;
+
+            MessageBox.Show("Combat has ended!");
+            // Handle additional cleanup or transitions here
+            CombatEnded?.Invoke();
+            this.Close();
+        }
         private void takeDamageButton_Click(object sender, EventArgs e)
         {
             int damageAmount = 10;
             player.HP -= damageAmount;
         }
 
-
+        private void stakeButton_Click(object sender, EventArgs e)
+        {
+            string message = combatController.PlayerStakeAttack();
+            MessageBox.Show(message);
+        }
     }
 }

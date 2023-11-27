@@ -26,56 +26,123 @@ namespace Goblins_Guis
         //    int damage = player.CalculateAttackDamage();
         //    player.HP -= player.CalculateAttackDamage();
         //}
-        public void PlayerAttack()
+        public string PlayerAttack()
         {
-            int damage = player.CalculateAttackDamage();
-            // Apply damage to enemy
-            enemy.HP -= damage;
-            // Check for enemy defeat, other logic...
-
-            // After player's turn, enemy gets a turn
-            EnemyTurn();
-        }
-        public void PlayerDefend()
-        {
-            // Player's defend logic (if needed)
-            // Prepare for enemy's turn
-            EnemyTurn();
-        }
-
-        //public void PerformDefend(int incomingDamage)
-        //{
-        //    int damageMitigated = player.CalculateDefense(incomingDamage);
-        //    int netDamage = incomingDamage - damageMitigated;
-
-
-        //    player.HP -= netDamage; 
-        //}
-
-        // TODO add enemy logic
-        private void EnemyTurn()
-        {
-            // Decide whether the enemy will attack or defend
-            if (rand.NextDouble() > 0.5) // Random decision for simplicity
+            if (player.AttemptAttack())
             {
-                EnemyAttack();
+                int damage = player.CalculateAttackDamage();
+                enemy.HP -= damage;
+                string enemyTurnResult = EnemyTurn(); // Get enemy's turn result
+                return $"{player.Name} attacked the enemy dealing {damage} damage.\n{enemyTurnResult}";
             }
             else
             {
-                EnemyDefend();
+                string enemyTurnResult = EnemyTurn(); // Get enemy's turn result
+                return $"{player.Name} attempted to attack the enemy but missed.\n{enemyTurnResult}";
+            }
+
+            
+        }
+        public string PlayerStakeAttack()
+        {
+            int roll = rand.Next(1, 7); // Roll a die (1-6)
+            if (roll > 3) // Define success criteria, e.g., 4-6 is a success
+            {
+                // Success: Deal double damage
+                int damage = player.CalculateAttackDamage() * 2;
+                enemy.HP -= damage;
+                return $"{player.Name} successfully staked and dealt double damage of {damage}!";
+            }
+            else
+            {
+                // Failure: Take double damage
+                int damage = enemy.CalculateAttackDamage() * 2;
+                player.HP -= damage;
+                return $"{player.Name} failed the stake and took double damage of {damage}!";
             }
         }
-        private void EnemyAttack()
+        public string PlayerDefend()
         {
-            int damage = enemy.CalculateAttackDamage();
-            // Apply damage to player
-            player.HP -= damage;
-            // Check for player defeat, other logic...
+            string enemyTurnResult = EnemyTurn(); // Get the enemy's action
+            if (enemyTurnResult.StartsWith("Enemy attacked")) // Simple check to see if enemy attacked
+            {
+                int incomingDamage = enemy.CalculateAttackDamage();
+                int mitigatedDamage = player.CalculateDefense(incomingDamage);
+                player.HP -= (incomingDamage - mitigatedDamage); // Apply the reduced damage
+
+                return $"Player defended. {enemyTurnResult} Mitigated {mitigatedDamage} damage.";
+            }
+            else
+            {
+                return $"Player defended. {enemyTurnResult}";
+            }
+        }
+        // Enemy-specific methods here
+        private string EnemyTurn()
+        {
+            double actionRoll = rand.NextDouble();
+
+            if (actionRoll > 0.66) // 33% chance to attack
+            {
+                return EnemyAttack();
+            }
+            else if (actionRoll > 0.33) // 33% chance to defend
+            {
+                return EnemyDefend(); // Implement similar to EnemyAttack if needed
+            }
+            else // 33% chance to stake
+            {
+                return EnemyStakeAttack(); // Taunting action
+            }
+        }
+        private string EnemyTaunt()
+        {
+            string[] taunts = { "The enemy mocks your skills!", "The enemy laughs at you!", "The enemy sneers at your efforts!" };
+            string taunt = taunts[rand.Next(taunts.Length)];
+            return taunt;
+        }
+        public string EnemyAttack()
+        {
+            if (enemy.AttemptAttack())
+            {
+                int damage = enemy.CalculateAttackDamage();
+                player.HP -= damage;
+                return $"Enemy attacked {player.Name} dealing {damage} damage.";
+            }
+            else
+            {
+                return "Enemy attempted to attack but missed.";
+            }
+        }
+        public string EnemyStakeAttack()
+        {
+            int roll = rand.Next(1, 7); // Roll a die (1-6)
+            if (roll > 3) //  4-6 is a success
+            {
+                int damage = enemy.CalculateAttackDamage() * 2;
+                player.HP -= damage;
+                return $"{enemy.Name} successfully staked and dealt double damage of {damage}!";
+            }
+            else
+            {
+                // Failure: Enemy takes double damage
+                int damage = player.CalculateAttackDamage() * 2;
+                enemy.HP -= damage;
+                return $"{enemy.Name} failed the stake and took double damage of {damage}!";
+            }
         }
 
-        private void EnemyDefend()
+        private string EnemyDefend()
         {
-            // Enemy's defend logic (if needed)
+            return $"Enemy Defended {player.Name} Blocking damage.";
+        }
+        public bool EnemyDead()
+        {
+            return enemy.HP <= 0;
+        }
+        public bool PlayerDead()
+        {
+           return player.HP <= 0;
         }
     }
 }

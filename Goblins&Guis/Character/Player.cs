@@ -30,6 +30,11 @@ namespace Goblins_Guis.Character
                 }
             }
         }
+        public bool AttemptAttack()
+        {
+            int roll = rand.Next(1, 7); 
+            return roll > 3; 
+        }
         public int CalculateAttackDamage()
         {
             int baseDamage = 10; // Starting base damage
@@ -58,9 +63,10 @@ namespace Goblins_Guis.Character
             // Class-specific defense modifier
             int defenseModifier = Class switch
             {
-                CharacterClass.Warrior => CON * 2, 
-                CharacterClass.Mage => WIS * 2,    
-                CharacterClass.Archer => DEX * 2,  
+                CharacterClass.Warrior => CON * 2,
+                CharacterClass.Mage => WIS * 2,
+                CharacterClass.Archer => DEX * 2,
+                _ => throw new NotImplementedException(),
             };
 
             int randomFactor = rand.Next(-2, 3);

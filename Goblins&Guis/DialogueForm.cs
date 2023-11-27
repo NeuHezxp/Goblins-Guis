@@ -28,7 +28,7 @@ namespace Goblins_Guis
             label2.Text = controller.GetNPCDialogue();
 
             button1.Text = "OverPower";
-            button2.Text = "Charm";
+            button2.Text = "Charm Him?";
             button3.Text = "";
             button4.Text = "";
         }

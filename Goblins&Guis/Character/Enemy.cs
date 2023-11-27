@@ -7,9 +7,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Goblins_Guis.Character
 {
-    internal class Enemy : Character, IDefend, IAttack
+    internal class Enemy : Character
     {
-        // Enemy-specific properties, like AI difficulty level
+        // Enemy-specific properties, like AI difficulty level or different health values
         public int DifficultyLevel { get; set; }
         private Random rand = new Random();
         public event Action<int> HealthChanged;
@@ -26,7 +26,7 @@ namespace Goblins_Guis.Character
             get => _hp;
             set
             {
-                int newHP = Math.Max(0, value); // Ensure health doesn't go below 0
+                int newHP = Math.Max(0, value); // Ensures health doesn't go below 0
                 if (_hp != newHP)
                 {
                     _hp = newHP;
@@ -34,10 +34,18 @@ namespace Goblins_Guis.Character
                 }
             }
         }
+        public bool AttemptAttack()
+        {
+            int roll = rand.Next(1, 7);
+            if (DifficultyLevel == 1)
+            {
+                return roll > 4;
+            }else {
+                return roll > 3;
+            }
+        }
         public int CalculateAttackDamage()
         {
-            // Simple AI for determining attack damage
-            // You can make this more complex based on DifficultyLevel
             int baseDamage = 10;
             int attackBonus = STR * 2;
             int randomFactor = rand.Next(-5, 6);
@@ -47,8 +55,6 @@ namespace Goblins_Guis.Character
         }
         public int CalculateDefense(int incomingDamage)
         {
-            // Simple AI for determining defense
-            // You can make this more complex based on DifficultyLevel
             int baseDefense = CON;
             int defenseBonus = CON * 2;
             int randomFactor = rand.Next(-2, 3);
@@ -59,27 +65,11 @@ namespace Goblins_Guis.Character
             return damageMitigated;
         }
 
-        public void Defend(int incomingDamage)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool attemptAttack(int difficulty)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool stake(int stake)
         {
             throw new NotImplementedException();
         }
 
-        public void Attack(int Roll)
-        {
-            throw new NotImplementedException();
-        }
-
-        // Enemy-specific methods here
 
     }
 }
