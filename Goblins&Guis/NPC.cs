@@ -35,6 +35,22 @@ namespace Goblins_Guis
     "Well met, traveler! The Bazaar of Bountiful Baubles offers trinkets and treasures galore.",
     "Step right up to the Wandering Wizard's Wagon, filled with magical marvels and arcane artifacts."
 };
+        private static readonly string[] MidDialogues =
+{
+    "Is there anything else you'd like to know about our collection?",
+    "Perhaps you'd be interested in hearing about our special offers today.",
+    "Take your time to browse. Let me know if anything catches your eye.",
+    "If you have any questions about our items, feel free to ask.",
+    "We also have some rare items in the back. Would you like to take a look?"
+};
+        private static readonly string[] EndingDialogues =
+{
+    "It seems our conversation is over. Prepare yourself for a challenge!",
+    "Words have their limits. Let's resolve this through strength of arms!",
+    "Enough talk! Defend yourself, for combat is the only language left to us now.",
+    "Our paths cross as foes. Draw your weapon and show your mettle!",
+    "You have overstayed your welcome. The time for battle is upon us!"
+};
         private static readonly string[] StrDialogues =
    {
         "The path of the mighty is not easy. Show your strength to proceed.",
@@ -85,6 +101,7 @@ namespace Goblins_Guis
             Name = GetRandomName();
             Dialogue = GetRandomDialogue();
         }
+
         public string GetRandomDialogueBasedOnAttribute(string attributeType)
         {
             string[] selectedArray;
@@ -124,6 +141,14 @@ namespace Goblins_Guis
         public string GetRandomDialogue()
         {
             return RandomDialogues[rand.Next(RandomDialogues.Length)];
+        }
+        public string GetRandomMidDialogue()
+        {
+            return MidDialogues[rand.Next(MidDialogues.Length)];
+        }
+        public string GetRandomEndDialogue()
+        {
+            return EndingDialogues[rand.Next(EndingDialogues.Length)];
         }
     }
 

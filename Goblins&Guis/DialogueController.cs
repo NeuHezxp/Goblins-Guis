@@ -22,6 +22,7 @@ namespace Goblins_Guis
             this.player = player;
             currentNPC = new NPC();
         }
+
         public Player GetPlayer()
         {
             return player;
@@ -73,6 +74,14 @@ namespace Goblins_Guis
         public string GetNewNPCDialogue()
         {
             return currentNPC.GetRandomDialogue();
+        }
+        public string GetRandomMidDialogue()
+        {
+            return currentNPC.GetRandomMidDialogue();
+        }
+        public string GetRandomEndDialogue()
+        {
+            return currentNPC.GetRandomEndDialogue();
         }
     }
 }

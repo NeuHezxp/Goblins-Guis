@@ -43,6 +43,13 @@ namespace Goblins_Guis
 
             
         }
+        public void ResolveCombat()
+        {
+            if (EnemyDead())
+            {
+                player.LevelUp();
+            }
+        }
         public string PlayerStakeAttack()
         {
             int roll = rand.Next(1, 7); // Roll a die (1-6)

@@ -108,6 +108,7 @@
             Margin = new Padding(2);
             Name = "DialogueForm";
             Text = "DialogueForm";
+            Load += DialogueForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

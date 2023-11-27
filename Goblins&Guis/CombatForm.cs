@@ -62,16 +62,30 @@ namespace Goblins_Guis
 
         private void button2_Click(object sender, EventArgs e)
         {
+            CheckPlayerHealth();
             string message = combatController.PlayerAttack();
             MessageBox.Show(message);
             if (combatController.EnemyDead())
             {
+                player.LevelUp();
                 OnCombatEnded();
             }
+        }
+        private void stakeButton_Click(object sender, EventArgs e)
+        {
+            CheckPlayerHealth();
+            string message = combatController.PlayerStakeAttack();
+            if (combatController.EnemyDead())
+            {
+                player.LevelUp();
+                OnCombatEnded();
+            }
+            MessageBox.Show(message);
         }
 
         private void Defendbutton_Click(object sender, EventArgs e)
         {
+            CheckPlayerHealth();
             string message = combatController.PlayerDefend();
             MessageBox.Show(message);
 
@@ -106,7 +120,7 @@ namespace Goblins_Guis
         private void OnCombatEnded()
         {
             // Reset health for both player and enemy
-            player.HP = 100;
+            player.HP += 100;
             enemy.HP = 100;
 
             MessageBox.Show("Combat has ended!");
@@ -114,16 +128,16 @@ namespace Goblins_Guis
             CombatEnded?.Invoke();
             this.Close();
         }
-        private void takeDamageButton_Click(object sender, EventArgs e)
+        private void CheckPlayerHealth()
         {
-            int damageAmount = 10;
-            player.HP -= damageAmount;
+            if (combatController.PlayerDead())
+            {
+                MessageBox.Show("You have been defeated!");
+                Application.Exit(); // This will close the application
+            }
         }
 
-        private void stakeButton_Click(object sender, EventArgs e)
-        {
-            string message = combatController.PlayerStakeAttack();
-            MessageBox.Show(message);
-        }
+
+
     }
 }

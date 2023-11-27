@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Goblins_Guis.Character
 {
-    internal class Player : Character, IAttack
+    internal class Player : Character
     {
         public event Action<int> HealthChanged;
         private Random rand = new Random();
@@ -29,6 +29,17 @@ namespace Goblins_Guis.Character
                     HealthChanged?.Invoke(_hp); // Raise event
                 }
             }
+        }
+        public void LevelUp()
+        {
+            MessageBox.Show("Level Up");
+            STR += 1;
+            DEX += 1;
+            CON += 1;
+            INT += 1;
+            WIS += 1;
+            CHA += 1;
+            HP += 10;
         }
         public bool AttemptAttack()
         {
@@ -79,18 +90,12 @@ namespace Goblins_Guis.Character
 
             return Guarded;
         }
-
         // Player-specific methods here
         public bool stake(int stake)
         {
             //stake a dice roll and if fails take double damage but if succeed deal double damage
             return false;
         }
-
-        public void Attack(int Roll)
-        {
-        }
-
         public bool attemptAttack(int difficulty)
         {
             return false;

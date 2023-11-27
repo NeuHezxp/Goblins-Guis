@@ -46,102 +46,124 @@ namespace Goblins_Guis
         private void button1_Click_1(object sender, EventArgs e)
         {
             buttonClickCount++;
-
-            if (buttonClickCount == 1)
+            switch (buttonClickCount)
             {
-                if (controller.CanPerformStrAction(6))
-                {
-                    label2.Text = controller.GetDialogueForAttribute("STR");
-                }
-                else
-                {
-                    MessageBox.Show("You think you can Brute force me huh?.");
+                case 1:
+                case 2:
+                case 3:
+                    if (controller.CanPerformStrAction(5 + buttonClickCount))
+                    {
+                        label2.Text = buttonClickCount == 1 ? controller.GetDialogueForAttribute("STR") :
+                                      buttonClickCount == 2 ? controller.GetRandomMidDialogue() :
+                                                              controller.GetRandomEndDialogue();
+                    }
+                    else
+                    {
+                        MessageBox.Show(buttonClickCount < 3 ? "You think you can Brute force me, huh?" : "You're weaker than I thought");
+                        StartCombat();
+                        buttonClickCount = 0; // Reset the count if combat starts
+                    }
+                    break;
+                default:
                     StartCombat();
-                }
+                    buttonClickCount = 0; // Reset the count for the next dialogue interaction
+                    break;
             }
-            else if (buttonClickCount == 2)
-            {
-                label2.Text = controller.GetNewNPCDialogue(); 
-                                                              
-                buttonClickCount = 0;
-            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             buttonClickCount++;
-
-            if (buttonClickCount == 1)
+            switch (buttonClickCount)
             {
-                if (controller.CanPerformStrAction(5))
-                {
-                    label2.Text = controller.GetDialogueForAttribute("CHA");
-                }
-                else
-                {
-                    MessageBox.Show("You arent that good lookin?.");
+                case 1:
+                case 2:
+                case 3:
+                    if (controller.CanPerformChaAction(5 + buttonClickCount))
+                    {
+                        label2.Text = buttonClickCount == 1 ? controller.GetDialogueForAttribute("CHA") :
+                                      buttonClickCount == 2 ? controller.GetRandomMidDialogue() :
+                                                              controller.GetRandomEndDialogue();
+                    }
+                    else
+                    {
+                        MessageBox.Show(buttonClickCount < 3 ? "You think you can Charm your way out of this huh?" : "You think i am some fool");
+                        StartCombat();
+                        buttonClickCount = 0; // Reset the count if combat starts
+                    }
+                    break;
+                default:
                     StartCombat();
-                }
-            }
-            else if (buttonClickCount == 2)
-            {
-                label2.Text = controller.GetNewNPCDialogue();
-
-                buttonClickCount = 0;
+                    buttonClickCount = 0; // Reset the count for the next dialogue interaction
+                    break;
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             buttonClickCount++;
-
-            if (buttonClickCount == 1)
+            switch (buttonClickCount)
             {
-                if (controller.CanPerformStrAction(5))
-                {
-                    label2.Text = controller.GetDialogueForAttribute("STR");
-                }
-                else
-                {
-                    MessageBox.Show("You think you can Brute force me huh?.");
+                case 1:
+                case 2:
+                case 3:
+                    if (controller.CanPerformChaAction(5 + buttonClickCount))
+                    {
+                        label2.Text = buttonClickCount == 1 ? controller.GetDialogueForAttribute("WIS") :
+                                      buttonClickCount == 2 ? controller.GetRandomMidDialogue() :
+                                                              controller.GetRandomEndDialogue();
+                    }
+                    else
+                    {
+                        MessageBox.Show(buttonClickCount < 3 ? "You think you can Charm your way out of this huh?" : "You think i am some fool");
+                        StartCombat();
+                        buttonClickCount = 0; // Reset the count if combat starts
+                    }
+                    break;
+                default:
                     StartCombat();
-                }
-            }
-            else if (buttonClickCount == 2)
-            {
-                label2.Text = controller.GetNewNPCDialogue();
-
-                buttonClickCount = 0;
+                    buttonClickCount = 0; // Reset the count for the next dialogue interaction
+                    break;
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             buttonClickCount++;
-
-            if (buttonClickCount == 1)
+            switch (buttonClickCount)
             {
-                if (controller.CanPerformStrAction(5))
-                {
-                    label2.Text = controller.GetDialogueForAttribute("STR");
-                }
-                else
-                {
-                    MessageBox.Show("You think you can Brute force me huh?.");
+                case 1:
+                case 2:
+                case 3:
+                    if (controller.CanPerformChaAction(5 + buttonClickCount))
+                    {
+                        label2.Text = buttonClickCount == 1 ? controller.GetDialogueForAttribute("DEX") :
+                                      buttonClickCount == 2 ? controller.GetRandomMidDialogue() :
+                                                              controller.GetRandomEndDialogue();
+                    }
+                    else
+                    {
+                        MessageBox.Show(buttonClickCount < 3 ? "You think you can Trick me huh?" : "You think i am some fool");
+                        StartCombat();
+                        buttonClickCount = 0; // Reset the count if combat starts
+                    }
+                    break;
+                default:
                     StartCombat();
-                }
-            }
-            else if (buttonClickCount == 2)
-            {
-                label2.Text = controller.GetNewNPCDialogue();
-
-                buttonClickCount = 0;
+                    buttonClickCount = 0; // Reset the count for the next dialogue interaction
+                    break;
             }
         }
         private void OnCombatEnded()
         {
             // Show the DialogueForm when combat ends
             this.Show();
+        }
+
+        private void DialogueForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
