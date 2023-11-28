@@ -50,7 +50,7 @@ namespace Goblins_Guis.Character
         {
             int baseDamage = 10; // Starting base damage
 
-            // Class-based damage modifier
+            // Class-based damage modifiers
             int classDamageBonus = Class switch
             {
                 CharacterClass.Warrior => STR * 2, // Warriors get double strength bonus
@@ -89,16 +89,6 @@ namespace Goblins_Guis.Character
             int Guarded = Math.Min(totalDefense, incomingDamage);
 
             return Guarded;
-        }
-        // Player-specific methods here
-        public bool stake(int stake)
-        {
-            //stake a dice roll and if fails take double damage but if succeed deal double damage
-            return false;
-        }
-        public bool attemptAttack(int difficulty)
-        {
-            return false;
         }
     }
 }

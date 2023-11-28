@@ -26,21 +26,21 @@ namespace Goblins_Guis
             // Set the NPC's name and initial dialogue
             label1.Text = controller.GetNPCName();
             label2.Text = controller.GetNPCDialogue();
-
+            //hard coded button text
             button1.Text = "OverPower";
             button2.Text = "Charm Him?";
-            button3.Text = "";
-            button4.Text = "";
+            button3.Text = "OutSmart Him";
+            button4.Text = "Trip Him Up";
         }
         private void StartCombat()
         {
-            Player player = controller.GetPlayer();
-            Enemy enemy = new Enemy(); // Create an enemy instance
+            Player player = controller.GetPlayer(); //gets the player from previous form.
+            Enemy enemy = new Enemy(); // Create the enemy
             CombatForm combatForm = new CombatForm(player, enemy);
             combatForm.CombatEnded += OnCombatEnded;
 
             combatForm.Show();
-            this.Hide();
+            this.Hide();//hides form and raises event
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -110,13 +110,13 @@ namespace Goblins_Guis
                 case 3:
                     if (controller.CanPerformChaAction(5 + buttonClickCount))
                     {
-                        label2.Text = buttonClickCount == 1 ? controller.GetDialogueForAttribute("WIS") :
+                        label2.Text = buttonClickCount == 1 ? controller.GetDialogueForAttribute("INT") :
                                       buttonClickCount == 2 ? controller.GetRandomMidDialogue() :
                                                               controller.GetRandomEndDialogue();
                     }
                     else
                     {
-                        MessageBox.Show(buttonClickCount < 3 ? "You think you can Charm your way out of this huh?" : "You think i am some fool");
+                        MessageBox.Show(buttonClickCount < 3 ? "You think you're smarter than me huh?" : "You think i am some fool");
                         StartCombat();
                         buttonClickCount = 0; // Reset the count if combat starts
                     }

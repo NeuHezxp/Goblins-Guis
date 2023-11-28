@@ -13,31 +13,25 @@ namespace Goblins_Guis
         private Player player;
         private Enemy enemy;
         private Random rand = new Random();
-        // If you have enemy characters or other combat participants, include them here
+        
 
         public CombatController(Player player, Enemy enemy)
         {
             this.player = player;
             this.enemy = enemy;
         }
-
-        //public void PerformAttack()
-        //{
-        //    int damage = player.CalculateAttackDamage();
-        //    player.HP -= player.CalculateAttackDamage();
-        //}
         public string PlayerAttack()
         {
             if (player.AttemptAttack())
             {
                 int damage = player.CalculateAttackDamage();
                 enemy.HP -= damage;
-                string enemyTurnResult = EnemyTurn(); // Get enemy's turn result
+                string enemyTurnResult = EnemyTurn();
                 return $"{player.Name} attacked the enemy dealing {damage} damage.\n{enemyTurnResult}";
             }
             else
             {
-                string enemyTurnResult = EnemyTurn(); // Get enemy's turn result
+                string enemyTurnResult = EnemyTurn(); 
                 return $"{player.Name} attempted to attack the enemy but missed.\n{enemyTurnResult}";
             }
 
@@ -53,7 +47,7 @@ namespace Goblins_Guis
         public string PlayerStakeAttack()
         {
             int roll = rand.Next(1, 7); // Roll a die (1-6)
-            if (roll > 3) // Define success criteria, e.g., 4-6 is a success
+            if (roll > 3) //4-6 is a hit
             {
                 // Success: Deal double damage
                 int damage = player.CalculateAttackDamage() * 2;
@@ -95,11 +89,11 @@ namespace Goblins_Guis
             }
             else if (actionRoll > 0.33) // 33% chance to defend
             {
-                return EnemyDefend(); // Implement similar to EnemyAttack if needed
+                return EnemyDefend();
             }
             else // 33% chance to stake
             {
-                return EnemyStakeAttack(); // Taunting action
+                return EnemyStakeAttack(); // Enemy Stakes action
             }
         }
         private string EnemyTaunt()
@@ -123,7 +117,7 @@ namespace Goblins_Guis
         }
         public string EnemyStakeAttack()
         {
-            int roll = rand.Next(1, 7); // Roll a die (1-6)
+            int roll = rand.Next(1, 7); // Roll a "die" (1-6)
             if (roll > 3) //  4-6 is a success
             {
                 int damage = enemy.CalculateAttackDamage() * 2;

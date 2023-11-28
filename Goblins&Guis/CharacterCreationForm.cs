@@ -32,6 +32,7 @@ namespace Goblins_Guis
             DialogueController dialogueController = new DialogueController(player);
             DialogueForm dialogueForm = new DialogueForm(dialogueController);
             dialogueForm.Show();
+            
         }
 
         public NumericUpDown StrengthNumericUpDown { get { return numericUpDownSTR; } }

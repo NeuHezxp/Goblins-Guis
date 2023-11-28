@@ -9,7 +9,7 @@ namespace Goblins_Guis.Character
 {
     internal class Enemy : Character
     {
-        // Enemy-specific properties, like AI difficulty level or different health values
+        // Enemy Class Properties
         public int DifficultyLevel { get; set; }
         private Random rand = new Random();
         public event Action<int> HealthChanged;
