@@ -5,6 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout
+            x:Name="MainLayout"
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
@@ -16,17 +17,21 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Hello, World!"
+                Text="Ello There!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
+            <Label
+                x:Name="startittext"
+	            Text="start it"
+	            SemanticProperties.HeadingLevel="Level1"
+	            FontSize="24"
+	            HorizontalOptions="Center" />
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                x:Name="clickCountLabel"
+                Text="{Binding Count}}"
+                />
 
             <Button
                 x:Name="CounterBtn"
