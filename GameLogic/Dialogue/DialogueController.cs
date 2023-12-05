@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameLogic
 {
-    internal class DialogueController
+    public class DialogueController
     {
         private static readonly Random rand = new Random();
         private NPC currentNPC;

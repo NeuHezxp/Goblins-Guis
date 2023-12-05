@@ -52,4 +52,20 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\GameLogic\GameLogic.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="DialloguePage.xaml.cs">
+	    <DependentUpon>DialloguePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="DialloguePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

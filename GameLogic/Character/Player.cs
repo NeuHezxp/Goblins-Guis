@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameLogic
 {
-    internal class Player : Character
+    public class Player : Character
     {
         public event Action<int> HealthChanged;
         private Random rand = new Random();
@@ -30,6 +30,7 @@ namespace GameLogic
                 }
             }
         }
+
         public void LevelUp()
         {
             //MessageBox.Show("Level Up");

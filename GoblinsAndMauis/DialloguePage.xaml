@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoblinsAndMauis.DialoguePage"
+             Title="Dialogue">
+	<ScrollView>
+		<VerticalStackLayout Spacing="10" Padding="20">
+			<!-- NPC Name -->
+			<Label x:Name="npcNameLabel"
+			       FontSize="Large"
+			       FontAttributes="Bold"
+			       HorizontalOptions="Center" />
+
+			<!-- Dialogue Text -->
+			<Label x:Name="dialogueTextLabel"
+			       FontSize="Medium"
+			       HorizontalOptions="Center"
+			       VerticalOptions="StartAndExpand" />
+
+			<!-- Choice Buttons -->
+			<Button x:Name="choiceButton1"
+			        Text="Choice 1"
+			        Clicked="OnChoiceClicked" />
+			<Button x:Name="choiceButton2"
+			        Text="Choice 2"
+			        Clicked="OnChoiceClicked" />
+			<Button x:Name="choiceButton3"
+			        Text="Choice 3"
+			        Clicked="OnChoiceClicked" />
+			<Button x:Name="choiceButton4"
+			        Text="Choice 4"
+			        Clicked="OnChoiceClicked" />
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

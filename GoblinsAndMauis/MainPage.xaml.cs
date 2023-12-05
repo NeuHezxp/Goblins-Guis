@@ -1,30 +1,89 @@
-﻿namespace GoblinsAndMauis
+﻿using GameLogic;
+using static GameLogic.Character;
+
+namespace GoblinsAndMauis
 {
     public partial class MainPage : ContentPage
     {
+        private Player player = new Player();
+
         int count = 0;
         public int Count 
         {
             get  => count;
             set { count = value; OnPropertyChanged(); }
         }
+        public string PlayerName
+        {
+            get => player.Name;
+            set
+            {
+                if (player.Name != value)
+                {
+                    player.Name = value;
+                    OnPropertyChanged(nameof(PlayerName));
+                }
+            }
+        }
+        public string PlayerGender
+        {
+            get => player.Gender;
+            set
+            {
+                if (player.Gender != value)
+                {
+                    player.Gender = value;
+                    OnPropertyChanged(nameof(PlayerGender));
+                }
+            }
+        }
+        private void OnClassPickerChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            var selectedItem = (string)picker.SelectedItem;
+
+            switch (selectedItem)
+            {
+                case "Warrior":
+                    player.Class = CharacterClass.Warrior;
+                    break;
+                case "Mage":
+                    player.Class = CharacterClass.Mage;
+                    break;
+                case "Archer":
+                    player.Class = CharacterClass.Archer;
+                    break;
+            }
+        }
 
         public MainPage()
         {
             InitializeComponent();
+            player = new Player();
+            BindingContext = player; // Set the BindingContext to enable data binding
+        }
+        private async void OnNextLevelClicked(object sender, EventArgs e)
+        {
+            DialogueController controller = new DialogueController(player);
+            await Navigation.PushAsync(new DialoguePage(controller));
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            count++;
+            // Instead of incrementing the count, display the player's name
+            CounterBtn.Text = "Create Character";
+            clickCountLabel.Text = $"Player Name: {player.Name}, " +
+                            $"Gender: {player.Gender}, " +
+                            $"STR: {player.STR}, " +
+                            $"DEX: {player.DEX}, " +
+                            $"CON: {player.CON}, " +
+                            $"INT: {player.INT}, " +
+                            $"WIS: {player.WIS}, " +
+                            $"CHA: {player.CHA}" +
+                            $"Class: {player.Class}";
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-            clickCountLabel.Text = count.ToString();
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            // If you still want to announce something, you can change it to announce the player's name
+            SemanticScreenReader.Announce($"Player Name: {PlayerName}");
         }
     }
 }

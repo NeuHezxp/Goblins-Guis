@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GoblinsAndMauis.MainPage">
+             x:Class="GoblinsAndMauis.MainPage"
+             Title="CharacterCreation">
+    
 
-    <ScrollView>
+	<ScrollView>
         <VerticalStackLayout
             x:Name="MainLayout"
             Spacing="25"
@@ -16,17 +18,56 @@
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="Ello There!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-            <Label
-                x:Name="startittext"
-	            Text="start it"
-	            SemanticProperties.HeadingLevel="Level1"
-	            FontSize="24"
-	            HorizontalOptions="Center" />
+            <Entry
+	            Placeholder="Enter your name"
+	            Text="{Binding PlayerName, Mode=TwoWay}"
+	            HorizontalOptions="FillAndExpand" />
+            <Entry
+	            Placeholder="Enter Your Gender"
+	            Text="{Binding PlayerGender, Mode=TwoWay}"
+	            HorizontalOptions="FillAndExpand" />
+
+            <!-- Strength (STR) -->
+            <Label Text="Strength (STR)" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding player.STR, Mode=TwoWay}" />
+            <Label Text="{Binding player.STR}" />
+
+            <!-- Dexterity (DEX) -->
+            <Label Text="Dexterity (DEX)" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding player.DEX, Mode=TwoWay}" />
+            <Label Text="{Binding player.DEX}" />
+
+            <!-- Constitution (CON) -->
+            <Label Text="Constitution (CON)" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding player.CON, Mode=TwoWay}" />
+            <Label Text="{Binding player.CON}" />
+
+            <!-- Intelligence (INT) -->
+            <Label Text="Intelligence (INT)" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding player.INT, Mode=TwoWay}" />
+            <Label Text="{Binding player.INT}" />
+
+            <!-- Wisdom (WIS) -->
+            <Label Text="Wisdom (WIS)" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding player.WIS, Mode=TwoWay}" />
+            <Label Text="{Binding player.WIS}" />
+
+            <!-- Charisma (CHA) -->
+            <Label Text="Charisma (CHA)" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding player.CHA, Mode=TwoWay}" />
+            <Label Text="{Binding player.CHA}" />
+
+            <!--Class-->
+            <Picker x:Name="classPicker" Title="Select Class">
+	            <Picker.ItemsSource>
+		            <x:Array Type="{x:Type x:String}">
+			            <x:String>Warrior</x:String>
+			            <x:String>Mage</x:String>
+			            <x:String>Archer</x:String>
+		            </x:Array>
+	            </Picker.ItemsSource>
+            </Picker>
+
 
             <Label
                 x:Name="clickCountLabel"
@@ -39,6 +80,17 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+            <Label
+	            x:Name="nextLevelLabel"
+	            Text="Next Level"
+            />
+
+            <Button
+	            x:Name="nextLevelButton"
+	            Text="Next Level"
+	            Clicked="OnNextLevelClicked"
+	            HorizontalOptions="Center" />
+
 
         </VerticalStackLayout>
     </ScrollView>
