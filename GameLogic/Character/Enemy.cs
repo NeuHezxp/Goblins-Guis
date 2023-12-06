@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace GameLogic
 {
-    internal class Enemy : Character
+    public class Enemy : Character
     {
         // Enemy Class Properties
         public int DifficultyLevel { get; set; }
         private Random rand = new Random();
         public event Action<int> HealthChanged;
+        public int MaxHP { get; private set; } = 100; // Default max HP for enemy
 
         public Enemy() : base()
         {
 
             DifficultyLevel = 1; // Default difficulty
-            HP = 100;
+            HP = MaxHP;
         }
         private int _hp;
         public int HP

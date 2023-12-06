@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameLogic
 {
-    internal class CombatController
+    public class CombatController
     {
         private Player player;
         private Enemy enemy;
@@ -81,19 +81,65 @@ namespace GameLogic
         // Enemy-specific methods here
         private string EnemyTurn()
         {
-            double actionRoll = rand.NextDouble();
+            const double lowHealthThreshold = 0.3; // Enemy's low health threshold
+            const double aggressiveModeThreshold = 0.5; // Player's low health threshold
+            const double tauntingThreshold = 0.5; // Enemy has 50% more health than the player
 
-            if (actionRoll > 0.66) // 33% chance to attack
+            double enemyHealthRatio = (double)enemy.HP / enemy.MaxHP;
+            double playerHealthRatio = (double)player.HP / player.MaxHP;
+            double healthDifferenceRatio = enemyHealthRatio / playerHealthRatio;
+
+            // Enemy taunting logic when significantly ahead
+            if (healthDifferenceRatio > tauntingThreshold && enemyHealthRatio > playerHealthRatio)
             {
-                return EnemyAttack();
+                if (rand.NextDouble() < 0.2) // 20% chance to taunt
+                {
+                    return EnemyTaunt();
+                }
             }
-            else if (actionRoll > 0.33) // 33% chance to defend
+
+            // Enemy logic when low on health
+            if (enemyHealthRatio <= lowHealthThreshold)
             {
-                return EnemyDefend();
+                double actionRoll = rand.NextDouble();
+                if (actionRoll > 0.5) // 50% chance to stake
+                {
+                    return EnemyStakeAttack();
+                }
+                else // 50% chance to defend
+                {
+                    return EnemyDefend();
+                }
             }
-            else // 33% chance to stake
+            // Enemy logic when player is low on health
+            else if (playerHealthRatio <= aggressiveModeThreshold)
             {
-                return EnemyStakeAttack(); // Enemy Stakes action
+                double actionRoll = rand.NextDouble();
+                if (actionRoll > 0.5) // 50% chance to stake or attack
+                {
+                    return EnemyStakeAttack();
+                }
+                else // 50% chance to attack
+                {
+                    return EnemyAttack();
+                }
+            }
+            // Regular decision making
+            else
+            {
+                double actionRoll = rand.NextDouble();
+                if (actionRoll > 0.66) // 33% chance to attack
+                {
+                    return EnemyAttack();
+                }
+                else if (actionRoll > 0.33) // 33% chance to defend
+                {
+                    return EnemyDefend();
+                }
+                else // 33% chance to stake
+                {
+                    return EnemyStakeAttack();
+                }
             }
         }
         private string EnemyTaunt()

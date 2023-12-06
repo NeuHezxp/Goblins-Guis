@@ -57,13 +57,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="DialloguePage.xaml.cs">
-	    <DependentUpon>DialloguePage.xaml</DependentUpon>
+	  <Compile Update="DialoguePage.xaml.cs">
+	    <DependentUpon>DialoguePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="DialloguePage.xaml">
+	  <MauiXaml Update="CombatPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DialoguePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

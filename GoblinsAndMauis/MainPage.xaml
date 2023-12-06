@@ -20,42 +20,42 @@
 
             <Entry
 	            Placeholder="Enter your name"
-	            Text="{Binding PlayerName, Mode=TwoWay}"
+	            Text="{Binding Name, Mode=TwoWay}"
 	            HorizontalOptions="FillAndExpand" />
             <Entry
 	            Placeholder="Enter Your Gender"
-	            Text="{Binding PlayerGender, Mode=TwoWay}"
+	            Text="{Binding Gender, Mode=TwoWay}"
 	            HorizontalOptions="FillAndExpand" />
 
             <!-- Strength (STR) -->
             <Label Text="Strength (STR)" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding player.STR, Mode=TwoWay}" />
-            <Label Text="{Binding player.STR}" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding STR, Mode=TwoWay}" />
+            <Label Text="{Binding STR}" />
 
             <!-- Dexterity (DEX) -->
             <Label Text="Dexterity (DEX)" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding player.DEX, Mode=TwoWay}" />
-            <Label Text="{Binding player.DEX}" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding DEX, Mode=TwoWay}" />
+            <Label Text="{Binding DEX}" />
 
             <!-- Constitution (CON) -->
             <Label Text="Constitution (CON)" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding player.CON, Mode=TwoWay}" />
-            <Label Text="{Binding player.CON}" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding CON, Mode=TwoWay}" />
+            <Label Text="{Binding CON}" />
 
             <!-- Intelligence (INT) -->
             <Label Text="Intelligence (INT)" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding player.INT, Mode=TwoWay}" />
-            <Label Text="{Binding player.INT}" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding INT, Mode=TwoWay}" />
+            <Label Text="{Binding INT}" />
 
             <!-- Wisdom (WIS) -->
             <Label Text="Wisdom (WIS)" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding player.WIS, Mode=TwoWay}" />
-            <Label Text="{Binding player.WIS}" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding WIS, Mode=TwoWay}" />
+            <Label Text="{Binding WIS}" />
 
             <!-- Charisma (CHA) -->
             <Label Text="Charisma (CHA)" />
-            <Slider Minimum="0" Maximum="10" Value="{Binding player.CHA, Mode=TwoWay}" />
-            <Label Text="{Binding player.CHA}" />
+            <Slider Minimum="0" Maximum="10" Value="{Binding CHA, Mode=TwoWay}" />
+            <Label Text="{Binding CHA}" />
 
             <!--Class-->
             <Picker x:Name="classPicker" Title="Select Class">
@@ -76,20 +76,15 @@
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
+                Text="Create Character"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
-            <Label
-	            x:Name="nextLevelLabel"
-	            Text="Next Level"
-            />
 
             <Button
 	            x:Name="nextLevelButton"
 	            Text="Next Level"
 	            Clicked="OnNextLevelClicked"
-	            HorizontalOptions="Center" />
+	            HorizontalOptions="FillAndExpand" />
 
 
         </VerticalStackLayout>

@@ -1,0 +1,54 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoblinsAndMauis.CombatPage"
+             Title="Combat">
+
+	<ScrollView>
+		<VerticalStackLayout Spacing="15" Padding="20">
+
+			<!-- Enemy Name Label -->
+			<Label x:Name="enemyNameLabel"
+			       Text="Enemy Name"
+			       FontAttributes="Bold"
+			       HorizontalOptions="CenterAndExpand" />
+
+			<!-- Enemy Dialogue Label -->
+			<Label x:Name="enemyDialogueLabel"
+			       Text="Enemy dialogue appears here..."
+			       HorizontalOptions="CenterAndExpand" />
+			<!-- Enemy Health Bar -->
+			<Label Text="Enemy Health" />
+			<ProgressBar x:Name="enemyHealthBar" 
+			             Progress="{Binding enemy.HP}" />
+
+			<!-- Player Health Bar -->
+			<Label Text="Player Health" />
+			<ProgressBar x:Name="playerHealthBar" 
+			             Progress="{Binding PlayerHealth}" />
+           
+			
+
+            <!-- Action Buttons -->
+			<HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+				<Button x:Name="stakeButton"
+				        Text="Stake"
+				        Clicked="OnStakeClicked"
+				        HorizontalOptions="Center" />
+				<Button x:Name="attackButton"
+				        Text="Attack"
+				        Clicked="OnAttackClicked"
+				        HorizontalOptions="Center" />
+				<Button x:Name="defendButton"
+				        Text="Defend"
+				        Clicked="OnDefendClicked"
+				        HorizontalOptions="Center" />
+			</HorizontalStackLayout>
+
+            <Button x:Name="fleeButton"
+			        Text="Flee"
+			        HorizontalOptions="CenterAndExpand"
+			        Clicked="OnFleeClicked" />
+
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

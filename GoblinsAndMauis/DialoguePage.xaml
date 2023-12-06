@@ -20,16 +20,16 @@
 			<!-- Choice Buttons -->
 			<Button x:Name="choiceButton1"
 			        Text="Choice 1"
-			        Clicked="OnChoiceClicked" />
+			        Clicked="button1_Click_1" />
 			<Button x:Name="choiceButton2"
 			        Text="Choice 2"
-			        Clicked="OnChoiceClicked" />
+			        Clicked="button2_Click" />
 			<Button x:Name="choiceButton3"
 			        Text="Choice 3"
-			        Clicked="OnChoiceClicked" />
+			        Clicked="button3_Click" />
 			<Button x:Name="choiceButton4"
 			        Text="Choice 4"
-			        Clicked="OnChoiceClicked" />
+			        Clicked="button4_Click" />
 		</VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

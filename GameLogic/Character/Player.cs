@@ -10,10 +10,10 @@ namespace GameLogic
     {
         public event Action<int> HealthChanged;
         private Random rand = new Random();
-        
+        public int MaxHP { get; private set; } = 100; // Default max HP
         public Player() : base()
         {
-            HP = 100;
+            HP = MaxHP; // Start with full health
         }
         // Modify the HP property to trigger the event
         private int _hp;
@@ -40,7 +40,9 @@ namespace GameLogic
             INT += 1;
             WIS += 1;
             CHA += 1;
-            HP += 10;
+            // Other stat increases...
+            MaxHP += 10; // Increase MaxHP by 10
+            HP += 10; // Increase current HP by 10
         }
         public bool AttemptAttack()
         {

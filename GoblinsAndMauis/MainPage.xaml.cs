@@ -5,38 +5,10 @@ namespace GoblinsAndMauis
 {
     public partial class MainPage : ContentPage
     {
-        private Player player = new Player();
+        private Player player;
 
-        int count = 0;
-        public int Count 
-        {
-            get  => count;
-            set { count = value; OnPropertyChanged(); }
-        }
-        public string PlayerName
-        {
-            get => player.Name;
-            set
-            {
-                if (player.Name != value)
-                {
-                    player.Name = value;
-                    OnPropertyChanged(nameof(PlayerName));
-                }
-            }
-        }
-        public string PlayerGender
-        {
-            get => player.Gender;
-            set
-            {
-                if (player.Gender != value)
-                {
-                    player.Gender = value;
-                    OnPropertyChanged(nameof(PlayerGender));
-                }
-            }
-        }
+       
+       
         private void OnClassPickerChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
@@ -61,6 +33,7 @@ namespace GoblinsAndMauis
             InitializeComponent();
             player = new Player();
             BindingContext = player; // Set the BindingContext to enable data binding
+                                     // Populate the Picker with enum values
         }
         private async void OnNextLevelClicked(object sender, EventArgs e)
         {
@@ -80,10 +53,11 @@ namespace GoblinsAndMauis
                             $"INT: {player.INT}, " +
                             $"WIS: {player.WIS}, " +
                             $"CHA: {player.CHA}" +
-                            $"Class: {player.Class}";
+                            $"Class:{player.Class}";
+           
 
             // If you still want to announce something, you can change it to announce the player's name
-            SemanticScreenReader.Announce($"Player Name: {PlayerName}");
+            SemanticScreenReader.Announce($"Player Name: {player.Name}");
         }
     }
 }
